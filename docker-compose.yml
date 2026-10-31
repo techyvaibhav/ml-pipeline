@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    image: churn-api:latest
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PATH: /app/models/model.joblib
+    volumes:
+      - ./models:/app/models:ro
+    restart: unless-stopped
